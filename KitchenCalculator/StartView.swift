@@ -8,14 +8,14 @@ struct StartView: View {
     @State private var vСapacity: PickerModelGlass = .glass
     @State private var bulkSolids: PickerModelBulkSolids = .sugar
     
-    
+   
     
     var body: some View {
         VStack {
             HStack() {
                 VStack(alignment: .leading, spacing: 20) {
-                    TextField("    Введите число", text: $sumNum)
-                        
+                    TextField("Введите число", text: $sumNum)
+                        .multilineTextAlignment(.center)
                         .frame(width: 176)
                         .font(.title3)
                         .padding(3)
@@ -130,7 +130,7 @@ struct StartView: View {
                     .background(.white)
                 
                 List{
-                    //                    listResult[0]
+//
                 }
                 .border(.mint)
                 
