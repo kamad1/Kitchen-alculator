@@ -8,7 +8,7 @@ struct StartView: View {
     @State private var vСapacity: PickerModelGlass = .glass
     @State private var bulkSolids: PickerModelBulkSolids = .sugar
     
-   
+    
     
     var body: some View {
         VStack {
@@ -52,6 +52,7 @@ struct StartView: View {
                     .background {
                         Image(.ves2)
                             .resizable()
+                            .scaledToFill()
                     }
                     .accentColor(.black).bold()
                     .clipShape(.rect(cornerRadii: .init(topTrailing: 12)))
@@ -77,12 +78,10 @@ struct StartView: View {
                     }
                     .accentColor(.black).bold()
                     .background(.white)
-
                     .border(.mint)
-
                 }
-                
             }
+            
             VStack {
                 Picker(selection: $bulkSolids) {
                     ForEach(PickerModelBulkSolids.allCases, id: \.rawValue) {
@@ -92,7 +91,6 @@ struct StartView: View {
                     }
                 } label: {
                     Text(bulkSolids.rawValue)
-                    
                 }
                 .accentColor(.white).bold()
                 .frame(maxWidth: .infinity, maxHeight: 40)
@@ -105,7 +103,7 @@ struct StartView: View {
                 .shadow( radius: 4)
                 
                 Button(action: {
-                    
+                    //
                 }, label: {
                     ZStack {
                         Image(.schet)
@@ -117,9 +115,9 @@ struct StartView: View {
                 }).frame(maxWidth: .infinity, maxHeight: 40)
                     .border(.mint)
                     .background(.white)
-                                
+                
                 Button(action: {
-                    
+                    //
                 }, label: {
                     Text("Запомнить")
                         .foregroundStyle(.black)
@@ -130,7 +128,7 @@ struct StartView: View {
                     .background(.white)
                 
                 List{
-//
+                    //
                 }
                 .border(.mint)
                 
@@ -142,23 +140,17 @@ struct StartView: View {
             
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
             .overlay(alignment: .bottomTrailing, content: {
-                
-                
-                
-                
                 Button {
-                    
-                                } label: {
-                                    Image(.button).renderingMode(.original)
-                                        .resizable()
-//                                        .frame(maxWidth: 50, maxHeight: 50)
-                                        .frame(width: 50, height: 50)
-                                        .clipShape(.circle)
-                                        .foregroundColor(.blue)
-                                }
-                                .offset(x: 0, y: 20)
+                    //
+                } label: {
+                    Image(.button).renderingMode(.original)
+                        .resizable()
+                        .frame(width: 50, height: 50)
+                        .clipShape(.circle)
+                        .foregroundColor(.blue)
+                }
+                .offset(x: 0, y: 20)
             })
-            
             .padding()
             .background {
                 Image(.krup2)
@@ -167,7 +159,7 @@ struct StartView: View {
                     .ignoresSafeArea()
             }
     }
-        
+    
 }
 
 #Preview {
