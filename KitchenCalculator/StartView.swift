@@ -91,8 +91,9 @@ struct StartView: View {
                     }
                 } label: {
                     Text(bulkSolids.rawValue)
+                        
                 }
-                .accentColor(.white).bold()
+                .accentColor(.white)
                 .frame(maxWidth: .infinity, maxHeight: 40)
                 .background {
                     Image(.krup1)
@@ -111,6 +112,8 @@ struct StartView: View {
                         
                         Text("Расчет")
                             .foregroundStyle(.white)
+                            .font(.title)
+                            .fontWeight(.heavy)
                     }
                 }).frame(maxWidth: .infinity, maxHeight: 40)
                     .border(.mint)
