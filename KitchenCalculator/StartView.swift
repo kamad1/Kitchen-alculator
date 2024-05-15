@@ -119,13 +119,18 @@ struct StartView: View {
                 Button(action: {
                     //
                 }, label: {
-                    Text("Запомнить")
-                        .foregroundStyle(.black)
+                    
+                    Text("Записать")
+                    
+//                        .foregroundStyle(.black)
+                        .font(.title)
+                        .fontWeight(.heavy)
+                        .foregroundStyle(LinearGradient(colors: [.gray, .blue, .red], startPoint: .leading, endPoint: .trailing))
                     Image(systemName: "opticaldisc").imageScale(.large)
-                        .tint(.black)
+                        .tint(Gradient(colors: [.gray, .blue, .red]))
                 }).frame(maxWidth: .infinity, maxHeight: 40)
                     .border(.mint)
-                    .background(.white)
+                    .background(.white.opacity(0.7))
                 
                 List{
                     //
