@@ -8,7 +8,7 @@ struct StartView: View {
     @State private var vСapacity: PickerModelGlass = .glass
     @State private var bulkSolids: PickerModelBulkSolids = .sugar
     
-    
+    @State private var animateGradient = false
     
     var body: some View {
         VStack {
@@ -91,7 +91,6 @@ struct StartView: View {
                     }
                 } label: {
                     Text(bulkSolids.rawValue)
-                        
                 }
                 .accentColor(.white)
                 .frame(maxWidth: .infinity, maxHeight: 40)
@@ -122,18 +121,25 @@ struct StartView: View {
                 Button(action: {
                     //
                 }, label: {
-                    
-                    Text("Записать")
-                    
-//                        .foregroundStyle(.black)
-                        .font(.title)
-                        .fontWeight(.heavy)
-                        .foregroundStyle(LinearGradient(colors: [.gray, .blue, .red], startPoint: .leading, endPoint: .trailing))
-                    Image(systemName: "opticaldisc").imageScale(.large)
-                        .tint(Gradient(colors: [.gray, .blue, .red]))
+                            Text("Записать")
+                                .foregroundStyle(.white)
+                                .font(.title)
+                                .fontWeight(.heavy)
+
+                            Image(systemName: "opticaldisc").imageScale(.large)
+                        .tint(.white)
                 }).frame(maxWidth: .infinity, maxHeight: 40)
                     .border(.mint)
-                    .background(.white.opacity(0.7))
+                    .background {
+                        LinearGradient(colors: [Color.purple, Color.pink, Color.yellow], startPoint: .leading, endPoint: .trailing)
+                            .hueRotation(.degrees(animateGradient ? 45 : 0))
+                            .onAppear {
+                                withAnimation(.easeInOut(duration: 0.8).repeatForever(autoreverses: true)) {
+                                    animateGradient.toggle()
+                                }
+                            }
+                    }
+                
                 
                 List{
                     //

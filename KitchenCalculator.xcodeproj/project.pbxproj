@@ -54,6 +54,7 @@
 			isa = PBXGroup;
 			children = (
 				814F13D32BF3C9700012B6C3 /* KitchenCalculatorApp.swift */,
+				814F13E42BF641D70012B6C3 /* Service */,
 				814F13D52BF3C9700012B6C3 /* StartView.swift */,
 				814F13E12BF3CD810012B6C3 /* Model */,
 				814F13D72BF3C9710012B6C3 /* Assets.xcassets */,
@@ -76,6 +77,13 @@
 				814F13E22BF3CD9A0012B6C3 /* PickerModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		814F13E42BF641D70012B6C3 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
