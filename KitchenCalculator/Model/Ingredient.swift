@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct Ingridient: Identifiable, Hashable {
+struct Ingredient: Identifiable, Hashable {
     var id = UUID().uuidString
     var name: String
     var density: Int
 
-    static var mockData: [Ingridient] = [
+    static var mockData: [Ingredient] = [
         .init(name: "Сахар", density: 1085),
         .init(name: "Вода", density: 997),
         .init(name: "Соль", density: 1085)
@@ -20,11 +20,3 @@ struct Ingridient: Identifiable, Hashable {
     ]
 
 }
-
-enum PickerModelBulkSolids: String, CaseIterable {
-    case sugar = "Сахар"
-    case flour = "Мука"
-   case cereal = "Соль"
-}
-
-

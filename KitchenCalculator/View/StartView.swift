@@ -2,21 +2,14 @@
 import SwiftUI
 
 struct StartView: View {
-    
+    @StateObject  var viewModel = StartViewModel()
     @State private var sumNum: String = ""
-//    @State private var weightGradation: PickerModelMeasureValue = .gramm
-//    @State private var vСapacity: PickerModelMeasureValue2 = .glass
-//    @State private var bulkSolids: PickerModelBulkSolids = .sugar
-    @StateObject  var viewModel: IngridientViewModel
-    @StateObject  var viewModel2: MeasureValueViewModel
-    @StateObject  var viewModel3: MeasureValueViewModel
-    
     @State private var animateGradient = false
     
     var body: some View {
         VStack {
             HStack() {
-                VStack(alignment: .leading, spacing: 20) {
+                VStack(alignment: .leading, spacing: 64) {
                     TextField("Введите число", text: $sumNum)
                         .multilineTextAlignment(.center)
                         .frame(width: 176)
@@ -28,10 +21,8 @@ struct StartView: View {
                         .clipShape(.rect(topLeadingRadius: 12))
                         .shadow(radius: 4)
                     
-                    //Тут комит так как вверху закомитил пикеры старые
                     Text("Вес: \(sumNum)")
-//                    Text("Вес: \(sumNum) \(weightGradation.rawValue.lowercased())\nКл-во \(vСapacity.rawValue) - 0") // расчеты тут пока удалил
-                        .frame(maxWidth: 150, maxHeight: 70)
+                        .frame(maxWidth: 150)
                         .foregroundStyle(.black)
                         .padding()
                         .border(.mint)
@@ -42,85 +33,59 @@ struct StartView: View {
                 Spacer()
                 
                 VStack(alignment: .center, spacing: 27) {
-                    Picker("Веса", selection: $viewModel2.measureValue) {
-                        ForEach(viewModel2.measureValue) { ves in
-                            Text(ves.name).tag(ves)
+                    Picker("Мера", selection: $viewModel.inMeasure) {
+                        ForEach(viewModel.measures) { measure in
+                            Text(measure.name).tag(measure)
                         }
                     }
+                    .frame(width: 130, height: 60)
+                    .background {
+                        Image(.ves2)
+                            .resizable()
+                            .scaledToFill()
+                    }
+                    .accentColor(.black).bold()
+                    .clipShape(.rect(cornerRadii: .init(topTrailing: 12)))
+                    .padding(2)
+                    .background(.white)
+                    .clipShape(.rect(cornerRadii: .init(topTrailing: 12)))
+                    .border(.mint)
+                    .clipShape(.rect(cornerRadii: .init(topTrailing: 12)))
                     
-                    Picker("Упаковка", selection: $viewModel3.measureValue) {
-                        ForEach(viewModel3.measureValue) { pack in
-                            Text(pack.name).tag(pack)
+                    Picker("Мера", selection: $viewModel.outMeasure) {
+                        ForEach(viewModel.measures) { measure in
+                            Text(measure.name).tag(measure)
                         }
                     }
-//                    Picker(selection: $weightGradation) {
-//                        ForEach(PickerModelMeasureValue.allCases, id: \.rawValue) {
-//                            gradation in
-//                            Text(gradation.rawValue).tag(gradation)
-//                        }
-//                    } label: {
-//                        Text(weightGradation.rawValue)
-//                            .foregroundStyle(.black)
-//                    }
-//                    .frame(width: 130, height: 60)
-//                    .background {
-//                        Image(.ves2)
-//                            .resizable()
-//                            .scaledToFill()
-//                    }
-//                    .accentColor(.black).bold()
-//                    .clipShape(.rect(cornerRadii: .init(topTrailing: 12)))
-//                    .padding(2)
-//                    .background(.white)
-//                    .clipShape(.rect(cornerRadii: .init(topTrailing: 12)))
-//                    .border(.mint)
-//                    .clipShape(.rect(cornerRadii: .init(topTrailing: 12)))
-//                    
-//                    Picker(selection: $vСapacity) {
-//                        ForEach(PickerModelMeasureValue2.allCases, id: \.rawValue) {
-//                            capacity in
-//                            Text(capacity.rawValue).tag(capacity)
-//                        }
-//                    } label: {
-//                        Text(vСapacity.rawValue)
-//                        
-//                    }
-//                    .frame(width: 130, height: 60)
-//                    .background {
-//                        Image(.posuda)
-//                            .resizable()
-//                    }
-//                    .accentColor(.black).bold()
-//                    .background(.white)
-//                    .border(.mint)
+                    .frame(width: 130, height: 60)
+                    .background {
+                        Image(.posuda)
+                            .resizable()
+                    }
+                    .accentColor(.black).bold()
+                    .background(.white)
+                    .border(.mint)
                 }
             }
             
             VStack {
-                Picker("Ингридиент", selection: $viewModel.ingridient) {
-                    ForEach(viewModel.ingridient) { ingridient in
-                        Text(ingridient.name).tag(ingridient)
+                
+                Picker("Мера",
+                       selection: $viewModel.ingredient) {
+                    ForEach(viewModel.ingredients) { ingredient in
+                        Text(ingredient.name).tag(ingredient)
                     }
                 }
-//                Picker(selection: $bulkSolids) {
-//                    ForEach(PickerModelBulkSolids.allCases, id: \.rawValue) {
-//                        bulk in
-//                        Text(bulk.rawValue).tag(bulk)
-//                        
-//                    }
-//                } label: {
-//                    Text(bulkSolids.rawValue)
-//                }
-//                .accentColor(.white)
-//                .frame(maxWidth: .infinity, maxHeight: 40)
-//                .background {
-//                    Image(.krup1)
-//                        .resizable()
-//                }
-//                .padding(2)
-//                .border(.mint)
-//                .shadow( radius: 4)
-//                
+                       .accentColor(.white)
+                       .frame(maxWidth: .infinity, maxHeight: 40)
+                       .background {
+                           Image(.krup1)
+                               .resizable()
+                       }
+                       .padding(2)
+                       .border(.mint)
+                       .shadow( radius: 4)
+                
                 Button(action: {
                     //
                 }, label: {
@@ -140,12 +105,12 @@ struct StartView: View {
                 Button(action: {
                     //
                 }, label: {
-                            Text("Записать")
-                                .foregroundStyle(.white)
-                                .font(.title)
-                                .fontWeight(.heavy)
-
-                            Image(systemName: "opticaldisc").imageScale(.large)
+                    Text("Записать")
+                        .foregroundStyle(.white)
+                        .font(.title)
+                        .fontWeight(.heavy)
+                    
+                    Image(systemName: "opticaldisc").imageScale(.large)
                         .tint(.white)
                 }).frame(maxWidth: .infinity, maxHeight: 40)
                     .border(.mint)
@@ -158,7 +123,6 @@ struct StartView: View {
                                 }
                             }
                     }
-                
                 
                 List{
                     //
