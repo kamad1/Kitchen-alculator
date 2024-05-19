@@ -23,7 +23,7 @@ struct Ingridient: Identifiable, Hashable {
 
 enum PickerModelBulkSolids: String, CaseIterable {
     case sugar = "Сахар"
-    case flour = "Вода"
+    case flour = "Мука"
    case cereal = "Соль"
 }
 

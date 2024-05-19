@@ -6,7 +6,8 @@ struct StartView: View {
     @State private var sumNum: String = ""
     @State private var weightGradation: PickerModelGramm = .gramm
     @State private var vСapacity: PickerModelGlass = .glass
-    @State private var bulkSolids: PickerModelBulkSolids = .sugar
+//    @State private var bulkSolids: PickerModelBulkSolids = .sugar
+    @StateObject  var viewModel: IngridientViewModel
     
     @State private var animateGradient = false
     
@@ -83,25 +84,30 @@ struct StartView: View {
             }
             
             VStack {
-                Picker(selection: $bulkSolids) {
-                    ForEach(PickerModelBulkSolids.allCases, id: \.rawValue) {
-                        bulk in
-                        Text(bulk.rawValue).tag(bulk)
-                        
+                Picker("Ингридиент", selection: $viewModel.ingridient) {
+                    ForEach(viewModel.ingridient) { ingridient in
+                        Text(ingridient.name).tag(ingridient)
                     }
-                } label: {
-                    Text(bulkSolids.rawValue)
                 }
-                .accentColor(.white)
-                .frame(maxWidth: .infinity, maxHeight: 40)
-                .background {
-                    Image(.krup1)
-                        .resizable()
-                }
-                .padding(2)
-                .border(.mint)
-                .shadow( radius: 4)
-                
+//                Picker(selection: $bulkSolids) {
+//                    ForEach(PickerModelBulkSolids.allCases, id: \.rawValue) {
+//                        bulk in
+//                        Text(bulk.rawValue).tag(bulk)
+//                        
+//                    }
+//                } label: {
+//                    Text(bulkSolids.rawValue)
+//                }
+//                .accentColor(.white)
+//                .frame(maxWidth: .infinity, maxHeight: 40)
+//                .background {
+//                    Image(.krup1)
+//                        .resizable()
+//                }
+//                .padding(2)
+//                .border(.mint)
+//                .shadow( radius: 4)
+//                
                 Button(action: {
                     //
                 }, label: {
@@ -178,4 +184,5 @@ struct StartView: View {
 
 #Preview {
     StartView()
+    
 }
