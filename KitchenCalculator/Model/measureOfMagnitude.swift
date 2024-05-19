@@ -11,19 +11,19 @@ struct measureOfMagnitude: Identifiable, Hashable {
         var e = 0
         return e
     }()
-
+    
 }
 
 enum PickerModelGramm: String, CaseIterable {
     case gramm = "Грамм"
-    case mLitr = "Милилитр"
+    case litr = "Литр"
     
     var weightGradation: Int {
         switch self {
         case .gramm:
-            1
-        case .mLitr:
-            1
+            1000
+        case .litr:
+            1000
         }
         }
     }
