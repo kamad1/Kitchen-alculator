@@ -14,6 +14,7 @@
 		814F13E32BF3CD9A0012B6C3 /* measureOfMagnitude.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F13E22BF3CD9A0012B6C3 /* measureOfMagnitude.swift */; };
 		814F14212BFA0C050012B6C3 /* Ingridient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F14202BFA0C050012B6C3 /* Ingridient.swift */; };
 		814F14262BFA1A680012B6C3 /* IngridientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F14252BFA1A680012B6C3 /* IngridientViewModel.swift */; };
+		814F14282BFA1D340012B6C3 /* MeasureValueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F14272BFA1D340012B6C3 /* MeasureValueViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		814F13E22BF3CD9A0012B6C3 /* measureOfMagnitude.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = measureOfMagnitude.swift; sourceTree = "<group>"; };
 		814F14202BFA0C050012B6C3 /* Ingridient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingridient.swift; sourceTree = "<group>"; };
 		814F14252BFA1A680012B6C3 /* IngridientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngridientViewModel.swift; sourceTree = "<group>"; };
+		814F14272BFA1D340012B6C3 /* MeasureValueViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureValueViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				814F14252BFA1A680012B6C3 /* IngridientViewModel.swift */,
+				814F14272BFA1D340012B6C3 /* MeasureValueViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 				814F13E32BF3CD9A0012B6C3 /* measureOfMagnitude.swift in Sources */,
 				814F13D62BF3C9700012B6C3 /* StartView.swift in Sources */,
 				814F13D42BF3C9700012B6C3 /* KitchenCalculatorApp.swift in Sources */,
+				814F14282BFA1D340012B6C3 /* MeasureValueViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

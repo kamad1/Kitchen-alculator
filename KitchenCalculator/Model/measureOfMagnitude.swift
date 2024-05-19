@@ -18,7 +18,7 @@ struct measureOfMagnitude: Identifiable, Hashable {
     
 }
 
-enum PickerModelGramm: String, CaseIterable {
+enum PickerModelMeasureValue: String, CaseIterable {
     case gramm = "Грамм"
     case mLitr = "Милилитр"
     
@@ -26,7 +26,7 @@ enum PickerModelGramm: String, CaseIterable {
     }
 
 
-enum PickerModelGlass: String, CaseIterable {
+enum PickerModelMeasureValue2: String, CaseIterable {
     case glass = "Стакан"
     case cups = "Кружка"
     case pack = "Упаковка"

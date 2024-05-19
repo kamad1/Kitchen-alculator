@@ -4,10 +4,12 @@ import SwiftUI
 struct StartView: View {
     
     @State private var sumNum: String = ""
-    @State private var weightGradation: PickerModelGramm = .gramm
-    @State private var vСapacity: PickerModelGlass = .glass
+//    @State private var weightGradation: PickerModelMeasureValue = .gramm
+//    @State private var vСapacity: PickerModelMeasureValue2 = .glass
 //    @State private var bulkSolids: PickerModelBulkSolids = .sugar
     @StateObject  var viewModel: IngridientViewModel
+    @StateObject  var viewModel2: MeasureValueViewModel
+    @StateObject  var viewModel3: MeasureValueViewModel
     
     @State private var animateGradient = false
     
@@ -26,8 +28,9 @@ struct StartView: View {
                         .clipShape(.rect(topLeadingRadius: 12))
                         .shadow(radius: 4)
                     
-                    
-                    Text("Вес: \(sumNum) \(weightGradation.rawValue.lowercased())\nКл-во \(vСapacity.rawValue) - 0") // расчеты тут пока удалил
+                    //Тут комит так как вверху закомитил пикеры старые
+                    Text("Вес: \(sumNum)")
+//                    Text("Вес: \(sumNum) \(weightGradation.rawValue.lowercased())\nКл-во \(vСapacity.rawValue) - 0") // расчеты тут пока удалил
                         .frame(maxWidth: 150, maxHeight: 70)
                         .foregroundStyle(.black)
                         .padding()
@@ -39,47 +42,57 @@ struct StartView: View {
                 Spacer()
                 
                 VStack(alignment: .center, spacing: 27) {
-                    
-                    Picker(selection: $weightGradation) {
-                        ForEach(PickerModelGramm.allCases, id: \.rawValue) {
-                            gradation in
-                            Text(gradation.rawValue).tag(gradation)
+                    Picker("Веса", selection: $viewModel2.measureValue) {
+                        ForEach(viewModel2.measureValue) { ves in
+                            Text(ves.name).tag(ves)
                         }
-                    } label: {
-                        Text(weightGradation.rawValue)
-                            .foregroundStyle(.black)
                     }
-                    .frame(width: 130, height: 60)
-                    .background {
-                        Image(.ves2)
-                            .resizable()
-                            .scaledToFill()
-                    }
-                    .accentColor(.black).bold()
-                    .clipShape(.rect(cornerRadii: .init(topTrailing: 12)))
-                    .padding(2)
-                    .background(.white)
-                    .clipShape(.rect(cornerRadii: .init(topTrailing: 12)))
-                    .border(.mint)
-                    .clipShape(.rect(cornerRadii: .init(topTrailing: 12)))
                     
-                    Picker(selection: $vСapacity) {
-                        ForEach(PickerModelGlass.allCases, id: \.rawValue) {
-                            capacity in
-                            Text(capacity.rawValue).tag(capacity)
+                    Picker("Упаковка", selection: $viewModel3.measureValue) {
+                        ForEach(viewModel3.measureValue) { pack in
+                            Text(pack.name).tag(pack)
                         }
-                    } label: {
-                        Text(vСapacity.rawValue)
-                        
                     }
-                    .frame(width: 130, height: 60)
-                    .background {
-                        Image(.posuda)
-                            .resizable()
-                    }
-                    .accentColor(.black).bold()
-                    .background(.white)
-                    .border(.mint)
+//                    Picker(selection: $weightGradation) {
+//                        ForEach(PickerModelMeasureValue.allCases, id: \.rawValue) {
+//                            gradation in
+//                            Text(gradation.rawValue).tag(gradation)
+//                        }
+//                    } label: {
+//                        Text(weightGradation.rawValue)
+//                            .foregroundStyle(.black)
+//                    }
+//                    .frame(width: 130, height: 60)
+//                    .background {
+//                        Image(.ves2)
+//                            .resizable()
+//                            .scaledToFill()
+//                    }
+//                    .accentColor(.black).bold()
+//                    .clipShape(.rect(cornerRadii: .init(topTrailing: 12)))
+//                    .padding(2)
+//                    .background(.white)
+//                    .clipShape(.rect(cornerRadii: .init(topTrailing: 12)))
+//                    .border(.mint)
+//                    .clipShape(.rect(cornerRadii: .init(topTrailing: 12)))
+//                    
+//                    Picker(selection: $vСapacity) {
+//                        ForEach(PickerModelMeasureValue2.allCases, id: \.rawValue) {
+//                            capacity in
+//                            Text(capacity.rawValue).tag(capacity)
+//                        }
+//                    } label: {
+//                        Text(vСapacity.rawValue)
+//                        
+//                    }
+//                    .frame(width: 130, height: 60)
+//                    .background {
+//                        Image(.posuda)
+//                            .resizable()
+//                    }
+//                    .accentColor(.black).bold()
+//                    .background(.white)
+//                    .border(.mint)
                 }
             }
             
