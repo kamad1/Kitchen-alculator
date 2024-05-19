@@ -8,10 +8,10 @@ struct MeasureOfMagnitude: Identifiable, Hashable {
     var baseValue: Double = 0.0
     
     static let measures: [MeasureOfMagnitude] = [
-        .init(name: "КГ", isWeight: true, baseValue: 1),
-        .init(name: "Г", isWeight: true, baseValue: 1000),
-        .init(name: "Л", isWeight: false, baseValue: 1),
-        .init(name: "МЛ", isWeight: false, baseValue: 1000)
+        .init(name: "Килограмм", isWeight: true, baseValue: 1),
+        .init(name: "Грамм", isWeight: true, baseValue: 1000),
+        .init(name: "Литр", isWeight: false, baseValue: 1),
+        .init(name: "Миллилитр", isWeight: false, baseValue: 1000)
     ]
 }
 
