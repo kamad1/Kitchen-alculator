@@ -11,7 +11,7 @@ import SwiftUI
 struct KitchenCalculatorApp: App {
     var body: some Scene {
         WindowGroup {
-            StartView()
+           ContentView()
         }
     }
 }

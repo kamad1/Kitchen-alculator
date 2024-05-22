@@ -53,8 +53,8 @@ struct StartView: View {
                     .clipShape(.rect(cornerRadii: .init(topTrailing: 12)))
                     
                     Picker("Мера", selection: $viewModel.outMeasure) {
-                        ForEach(viewModel.measures) { measure in
-                            Text(measure.name).tag(measure)
+                        ForEach(viewModel.packings) { pack in
+                            Text(pack.name).tag(pack)
                         }
                     }
                     .frame(width: 130, height: 60)
@@ -127,6 +127,7 @@ struct StartView: View {
                 List{
                     //
                 }
+                .background(.white)
                 .border(.mint)
                 
                 .clipShape(.rect(cornerRadii: .init(bottomLeading: 12)))
@@ -160,6 +161,6 @@ struct StartView: View {
 }
 
 #Preview {
-    StartView()
+    ContentView()
     
 }
