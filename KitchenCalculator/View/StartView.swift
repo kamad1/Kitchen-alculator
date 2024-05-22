@@ -5,6 +5,8 @@ struct StartView: View {
     @StateObject  var viewModel = StartViewModel()
     @State private var sumNum: String = ""
     @State private var animateGradient = false
+    @State private var selectedMeasure: CustomMeasureOfMagnitude = .kg
+    @State private var selectedPacking: CustomPacking = .pack
     
     var body: some View {
         VStack {
@@ -33,38 +35,43 @@ struct StartView: View {
                 Spacer()
                 
                 VStack(alignment: .center, spacing: 27) {
-                    Picker("Мера", selection: $viewModel.inMeasure) {
-                        ForEach(viewModel.measures) { measure in
-                            Text(measure.name).tag(measure)
-                        }
-                    }
-                    .frame(width: 130, height: 60)
-                    .background {
-                        Image(.ves2)
-                            .resizable()
-                            .scaledToFill()
-                    }
-                    .accentColor(.black).bold()
-                    .clipShape(.rect(cornerRadii: .init(topTrailing: 12)))
-                    .padding(2)
-                    .background(.white)
-                    .clipShape(.rect(cornerRadii: .init(topTrailing: 12)))
-                    .border(.mint)
-                    .clipShape(.rect(cornerRadii: .init(topTrailing: 12)))
-                    
-                    Picker("Мера", selection: $viewModel.outMeasure) {
-                        ForEach(viewModel.packings) { pack in
-                            Text(pack.name).tag(pack)
-                        }
-                    }
-                    .frame(width: 130, height: 60)
-                    .background {
-                        Image(.posuda)
-                            .resizable()
-                    }
-                    .accentColor(.black).bold()
-                    .background(.white)
-                    .border(.mint)
+//                    Picker("Мера", selection: $viewModel.inMeasure) {
+//                        ForEach(viewModel.measures) { measure in
+//                            Text(measure.name).tag(measure)
+//                        }
+//                    }
+//                    .frame(width: 130, height: 60)
+//                    .background {
+//                        Image(.ves2)
+//                            .resizable()
+//                            .scaledToFill()
+//                    }
+//                    .accentColor(.black).bold()
+//                    .clipShape(.rect(cornerRadii: .init(topTrailing: 12)))
+//                    .padding(2)
+//                    .background(.white)
+//                    .clipShape(.rect(cornerRadii: .init(topTrailing: 12)))
+//                    .border(.mint)
+//                    .clipShape(.rect(cornerRadii: .init(topTrailing: 12)))
+
+                        CustomPickerMeasureView(selectedMeasure: $selectedMeasure)
+                       
+                
+                        
+                    CustomPickerPackingView(selectedPacking: $selectedPacking)
+//                    Picker("Мера", selection: $viewModel.outMeasure) {
+//                        ForEach(viewModel.packings) { pack in
+//                            Text(pack.name).tag(pack)
+//                        }
+//                    }
+//                    .frame(width: 130, height: 60)
+//                    .background {
+//                        Image(.posuda)
+//                            .resizable()
+//                    }
+//                    .accentColor(.black).bold()
+//                    .background(.white)
+//                    .border(.mint)
                 }
             }
             
@@ -132,9 +139,13 @@ struct StartView: View {
                 
                 .clipShape(.rect(cornerRadii: .init(bottomLeading: 12)))
                 .clipShape(.rect(cornerRadii: .init(bottomTrailing: 120)))
+                .frame(maxHeight: 350)
+                
+                Divider()
+                    .padding(.bottom, 25)
                 
             }
-            
+            Spacer()
             
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
             .overlay(alignment: .bottomTrailing, content: {
@@ -147,7 +158,7 @@ struct StartView: View {
                         .clipShape(.circle)
                         .foregroundColor(.blue)
                 }
-                .offset(x: 0, y: 20)
+                .offset(x: 0, y: -45)
             })
             .padding()
             .background {
@@ -161,6 +172,6 @@ struct StartView: View {
 }
 
 #Preview {
-    ContentView()
+    StartView()
     
 }

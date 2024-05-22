@@ -1,9 +1,3 @@
-//
-//  Ingridient.swift
-//  KitchenCalculator
-//
-//  Created by Jedi on 19.05.2024.
-//
 
 import Foundation
 
