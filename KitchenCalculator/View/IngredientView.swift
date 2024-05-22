@@ -5,14 +5,22 @@ import SwiftUI
 struct IngredientView: View {
     @StateObject var viewModel = IngredientViewModel()
     @State private var showAddIngredientView = false
+    @State private var total = 0
+    
     var body: some View {
         
         VStack {
 
             List(Ingredient.mockData, id: \.id) { igr in
-                Text("\(igr.name) - \(igr.density) плотность")
-                
+                Text("\(igr.name): его плотность \(igr.density)")
+                    .swipeActions(allowsFullSwipe: false) {
+                                Button("Удалить") {
+                                    // TODO: как УДАЛИТЬ????
+                                }
+                                .tint(.red)
+                            }
             }
+            
         }.overlay(alignment: .bottomTrailing, content: {
             Button {
                 showAddIngredientView = true
@@ -39,7 +47,7 @@ struct IngredientView: View {
 //            }
             AddNewIngredientView {
                 showAddIngredientView = false
-
+             
             }
             .offset(y: showAddIngredientView ? 0 : 700)
         }
