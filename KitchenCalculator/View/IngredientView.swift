@@ -12,9 +12,16 @@ struct IngredientView: View {
         VStack {
             List(viewModel.ingredient) { ingr in
                 Text("\(ingr.name): его плотность \(ingr.density)")
-                    .swipeActions(allowsFullSwipe: false) {
+                    .swipeActions() {
                         Button("Удалить") {
                             viewModel.deleteIngredient(ingredient: ingr)
+                        }
+                        .tint(.red)
+                    }
+                    .swipeActions(edge: .leading) {
+                        Button("Редактировать") {
+                            viewModel.deleteIngredient(ingredient: ingr)
+                            showAddIngredientView = true
                         }
                         .tint(.red)
                     }
@@ -38,11 +45,6 @@ struct IngredientView: View {
                 .ignoresSafeArea()
         }
         .overlay {
-            //            AddNewIngredientView {
-            //                viewModel.addNewIngredient(ingredient: <#T##Ingredient#>)
-            //            } dismissAction: {
-            //                showAddIngredientView = false
-            //            }
             AddNewIngredientView {
                 showAddIngredientView = false
                 viewModel.ingredient = Ingredient.mockData
