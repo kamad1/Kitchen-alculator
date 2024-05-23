@@ -6,7 +6,7 @@ struct StartView: View {
     @State private var sumNum: String = ""
     @State private var animateGradient = false
     @State private var selectedMeasure: CustomMeasureOfMagnitude = .kg
-    @State private var selectedPacking: CustomPacking = .pack
+//    @State private var selectedPacking: CustomPacking = .pack
     
     var body: some View {
         VStack {
@@ -56,9 +56,11 @@ struct StartView: View {
 
                         CustomPickerMeasureView(selectedMeasure: $selectedMeasure)
                        
-                
+                    CustomPickerMeasureView(selectedMeasure: $selectedMeasure)
                         
-                    CustomPickerPackingView(selectedPacking: $selectedPacking)
+//                    CustomPickerPackingView(selectedPacking: $selectedPacking)
+                    
+                    
 //                    Picker("Мера", selection: $viewModel.outMeasure) {
 //                        ForEach(viewModel.packings) { pack in
 //                            Text(pack.name).tag(pack)
