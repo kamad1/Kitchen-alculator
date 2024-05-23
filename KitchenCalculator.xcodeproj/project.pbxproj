@@ -20,8 +20,6 @@
 		814F14342BFDF1850012B6C3 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F14332BFDF1850012B6C3 /* CustomTabBar.swift */; };
 		814F14362BFE04920012B6C3 /* CustomPickerMeasureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F14352BFE04920012B6C3 /* CustomPickerMeasureView.swift */; };
 		814F14382BFE06F60012B6C3 /* CustomMeasureOfMagnitude.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F14372BFE06F60012B6C3 /* CustomMeasureOfMagnitude.swift */; };
-		814F143C2BFE17330012B6C3 /* CustomPacking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F143B2BFE17330012B6C3 /* CustomPacking.swift */; };
-		814F143E2BFE19710012B6C3 /* CustomPickerPackingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F143D2BFE19710012B6C3 /* CustomPickerPackingView.swift */; };
 		814F14402BFE310F0012B6C3 /* IngredientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F143F2BFE310F0012B6C3 /* IngredientViewModel.swift */; };
 		814F14452BFE3AB80012B6C3 /* AddNewIngredientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F14442BFE3AB80012B6C3 /* AddNewIngredientView.swift */; };
 		814F14482BFE3AD30012B6C3 /* AddNewIngredientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F14472BFE3AD30012B6C3 /* AddNewIngredientViewModel.swift */; };
@@ -43,8 +41,6 @@
 		814F14332BFDF1850012B6C3 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		814F14352BFE04920012B6C3 /* CustomPickerMeasureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPickerMeasureView.swift; sourceTree = "<group>"; };
 		814F14372BFE06F60012B6C3 /* CustomMeasureOfMagnitude.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMeasureOfMagnitude.swift; sourceTree = "<group>"; };
-		814F143B2BFE17330012B6C3 /* CustomPacking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPacking.swift; sourceTree = "<group>"; };
-		814F143D2BFE19710012B6C3 /* CustomPickerPackingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPickerPackingView.swift; sourceTree = "<group>"; };
 		814F143F2BFE310F0012B6C3 /* IngredientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientViewModel.swift; sourceTree = "<group>"; };
 		814F14442BFE3AB80012B6C3 /* AddNewIngredientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewIngredientView.swift; sourceTree = "<group>"; };
 		814F14472BFE3AD30012B6C3 /* AddNewIngredientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewIngredientViewModel.swift; sourceTree = "<group>"; };
@@ -105,7 +101,7 @@
 			children = (
 				814F13E22BF3CD9A0012B6C3 /* MeasureOfMagnitude.swift */,
 				814F14392BFE0B940012B6C3 /* CustomMeasure */,
-				814F143A2BFE17110012B6C3 /* CustomPacking */,
+				814F142D2BFDEEF90012B6C3 /* Packing.swift */,
 				814F14202BFA0C050012B6C3 /* Ingredient.swift */,
 				814F14312BFDF1560012B6C3 /* CustomTab */,
 			);
@@ -145,7 +141,6 @@
 			children = (
 				814F14332BFDF1850012B6C3 /* CustomTabBar.swift */,
 				814F14352BFE04920012B6C3 /* CustomPickerMeasureView.swift */,
-				814F143D2BFE19710012B6C3 /* CustomPickerPackingView.swift */,
 				814F14462BFE3AC10012B6C3 /* Components */,
 			);
 			path = CustomView;
@@ -157,15 +152,6 @@
 				814F14372BFE06F60012B6C3 /* CustomMeasureOfMagnitude.swift */,
 			);
 			path = CustomMeasure;
-			sourceTree = "<group>";
-		};
-		814F143A2BFE17110012B6C3 /* CustomPacking */ = {
-			isa = PBXGroup;
-			children = (
-				814F142D2BFDEEF90012B6C3 /* Packing.swift */,
-				814F143B2BFE17330012B6C3 /* CustomPacking.swift */,
-			);
-			path = CustomPacking;
 			sourceTree = "<group>";
 		};
 		814F14412BFE3A650012B6C3 /* Components */ = {
@@ -276,9 +262,7 @@
 				814F14342BFDF1850012B6C3 /* CustomTabBar.swift in Sources */,
 				814F14302BFDF14A0012B6C3 /* Tab.swift in Sources */,
 				814F142C2BFDECBD0012B6C3 /* IngredientView.swift in Sources */,
-				814F143C2BFE17330012B6C3 /* CustomPacking.swift in Sources */,
 				814F13D42BF3C9700012B6C3 /* KitchenCalculatorApp.swift in Sources */,
-				814F143E2BFE19710012B6C3 /* CustomPickerPackingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
