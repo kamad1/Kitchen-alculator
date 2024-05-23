@@ -10,28 +10,15 @@ struct IngredientView: View {
     var body: some View {
         
         VStack {
-
-            List {
-                ForEach(Ingredient.mockData, id: \.self) { igr in
-                    
-                    Text("\(igr.name): его плотность \(igr.density)")
-                    
-//                                        .swipeActions(allowsFullSwipe: false) {
-//                                                    Button("Удалить") {
-//                                                        // не работает
-////                                               viewModel.ingredient.remove(at: igr)
-//                                                        
-//                                                        // TODO: как УДАЛИТЬ????
-//                                                    }
-//                                                    .tint(.red)
-//                                                }
-//                    
-                    
-                }
-                .onDelete(perform: viewModel.deleteIngredient)
+            List(viewModel.ingredient) { ingr in
+                Text("\(ingr.name): его плотность \(ingr.density)")
+                    .swipeActions(allowsFullSwipe: false) {
+                        Button("Удалить") {
+                            viewModel.deleteIngredient(ingredient: ingr)
+                        }
+                        .tint(.red)
+                    }
             }
-            
-            
         }.overlay(alignment: .bottomTrailing, content: {
             Button {
                 showAddIngredientView = true
@@ -51,14 +38,14 @@ struct IngredientView: View {
                 .ignoresSafeArea()
         }
         .overlay {
-//            AddNewIngredientView {
-//                viewModel.addNewIngredient(ingredient: <#T##Ingredient#>)
-//            } dismissAction: {
-//                showAddIngredientView = false
-//            }
+            //            AddNewIngredientView {
+            //                viewModel.addNewIngredient(ingredient: <#T##Ingredient#>)
+            //            } dismissAction: {
+            //                showAddIngredientView = false
+            //            }
             AddNewIngredientView {
                 showAddIngredientView = false
-             
+                
             }
             .offset(y: showAddIngredientView ? 0 : 700)
         }

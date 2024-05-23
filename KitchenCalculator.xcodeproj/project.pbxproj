@@ -105,7 +105,6 @@
 			children = (
 				814F13E22BF3CD9A0012B6C3 /* MeasureOfMagnitude.swift */,
 				814F14392BFE0B940012B6C3 /* CustomMeasure */,
-				814F142D2BFDEEF90012B6C3 /* Packing.swift */,
 				814F143A2BFE17110012B6C3 /* CustomPacking */,
 				814F14202BFA0C050012B6C3 /* Ingredient.swift */,
 				814F14312BFDF1560012B6C3 /* CustomTab */,
@@ -163,6 +162,7 @@
 		814F143A2BFE17110012B6C3 /* CustomPacking */ = {
 			isa = PBXGroup;
 			children = (
+				814F142D2BFDEEF90012B6C3 /* Packing.swift */,
 				814F143B2BFE17330012B6C3 /* CustomPacking.swift */,
 			);
 			path = CustomPacking;

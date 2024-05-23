@@ -21,7 +21,11 @@ class IngredientViewModel: ObservableObject {
         Ingredient.mockData.append(ingredient)
     }
     
-    func deleteIngredient(at offsets: IndexSet) {
-        ingredient.remove(atOffsets: offsets)
+    func deleteIngredient(ingredient: Ingredient) {
+        let index = self.ingredient.firstIndex {
+            ing in
+            ing.id == ingredient.id
+        }
+        self.ingredient.remove(at: index!)
     }
 }
