@@ -24,7 +24,9 @@ struct AddNewIngredientView: View {
                 .keyboardType(.numberPad)
             
             Button("Сохранить") {
-                Ingredient.mockData.append(viewModel.ingredient)
+                //перестал работать
+//                Ingredient.mockData.append(viewModel.ingredient)
+                viewModel.mockData.append(viewModel.ingredient)
                 dismissAction()
 
 //                action()

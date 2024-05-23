@@ -12,7 +12,7 @@ import Foundation
 class AddNewIngredientViewModel: ObservableObject {
     @Published var name: String = ""
     @Published var density: Int?
-    
+    @Published var mockData: [Ingredient] = []
     var ingredient: Ingredient {Ingredient(name: name, density: density ?? 0)}
     
     init() {
