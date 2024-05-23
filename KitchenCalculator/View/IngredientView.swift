@@ -11,15 +11,26 @@ struct IngredientView: View {
         
         VStack {
 
-            List(Ingredient.mockData, id: \.id) { igr in
-                Text("\(igr.name): его плотность \(igr.density)")
-                    .swipeActions(allowsFullSwipe: false) {
-                                Button("Удалить") {
-                                    // TODO: как УДАЛИТЬ????
-                                }
-                                .tint(.red)
-                            }
+            List {
+                ForEach(Ingredient.mockData, id: \.self) { igr in
+                    
+                    Text("\(igr.name): его плотность \(igr.density)")
+                    
+//                                        .swipeActions(allowsFullSwipe: false) {
+//                                                    Button("Удалить") {
+//                                                        // не работает
+////                                               viewModel.ingredient.remove(at: igr)
+//                                                        
+//                                                        // TODO: как УДАЛИТЬ????
+//                                                    }
+//                                                    .tint(.red)
+//                                                }
+//                    
+                    
+                }
+                .onDelete(perform: viewModel.deleteIngredient)
             }
+            
             
         }.overlay(alignment: .bottomTrailing, content: {
             Button {

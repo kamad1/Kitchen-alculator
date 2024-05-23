@@ -20,4 +20,8 @@ class IngredientViewModel: ObservableObject {
     func addNewIngredient(ingredient: Ingredient) {
         Ingredient.mockData.append(ingredient)
     }
+    
+    func deleteIngredient(at offsets: IndexSet) {
+        ingredient.remove(atOffsets: offsets)
+    }
 }
