@@ -20,10 +20,10 @@ struct IngredientView: View {
                     }
                     .swipeActions(edge: .leading) {
                         Button("Редактировать") {
-                            viewModel.deleteIngredient(ingredient: ingr)
-                            showAddIngredientView = true
+                            //TODO: Сделать редактирование
+
                         }
-                        .tint(.red)
+                        .tint(.green)
                     }
             }
         }.overlay(alignment: .bottomTrailing, content: {

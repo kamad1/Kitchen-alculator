@@ -35,18 +35,33 @@ struct CustomPickerMeasureView: View {
             .clipShape(.rect(cornerRadii: .init(topTrailing: 12)))
             .border(.mint)
             .clipShape(.rect(cornerRadii: .init(topTrailing: 12)))
-
-            if showList {
-                List(CustomMeasureOfMagnitude.allCases) { measure in
-                    Text("\(measure.rawValue)")
-                        .onTapGesture {
-                            selectedMeasure = measure
-                            showList.toggle()
-                        }
+            .overlay(alignment: .bottomLeading) {
+                if showList {
+                    List(CustomMeasureOfMagnitude.allCases) { measure in
+                        Text("\(measure.rawValue)")
+                            .onTapGesture {
+                                selectedMeasure = measure
+                                showList.toggle()
+                            }
+//
+                    }
+                    .listStyle(.plain)
+                    .frame(maxHeight: 200)
+                    .offset(x: 0, y: 50)
                 }
-                .listStyle(.plain)
-                .frame(maxHeight: 200)
             }
+           
+//            if showList {
+//                List(CustomMeasureOfMagnitude.allCases) { measure in
+//                    Text("\(measure.rawValue)")
+//                        .onTapGesture {
+//                            selectedMeasure = measure
+//                            showList.toggle()
+//                        }
+//                }
+//                .listStyle(.plain)
+//                .frame(maxHeight: 200)
+//            }
         }
         .frame(width: 130)
     }
