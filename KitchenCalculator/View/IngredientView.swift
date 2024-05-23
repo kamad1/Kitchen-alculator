@@ -45,7 +45,7 @@ struct IngredientView: View {
             //            }
             AddNewIngredientView {
                 showAddIngredientView = false
-                
+                viewModel.ingredient = Ingredient.mockData
             }
             .offset(y: showAddIngredientView ? 0 : 700)
         }
