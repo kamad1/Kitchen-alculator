@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct CustomPickerMeasureView: View {
-    @Binding var selectedMeasure: CustomMeasureOfMagnitude
+//    @Binding var selectedMeasure: CustomMeasureOfMagnitude
+    @Binding var selectedMeasure: MeasureOfMagnitude
+    var mockDatas: [MeasureOfMagnitude]
     @State private var showList = false
     
     var body: some View {
         
         VStack {
             HStack {
-                Text("\(selectedMeasure.rawValue)")
+                Text("\(selectedMeasure.name)")
                 Image(systemName: "triangle")
                     .rotationEffect(.degrees(180))
                     .onTapGesture {
@@ -35,10 +37,11 @@ struct CustomPickerMeasureView: View {
             .clipShape(.rect(cornerRadii: .init(topTrailing: 12)))
             .border(.mint)
             .clipShape(.rect(cornerRadii: .init(topTrailing: 12)))
-            .overlay(alignment: .bottomLeading) {
+            
+            .overlay(alignment: .bottom) {
                 if showList {
-                    List(CustomMeasureOfMagnitude.allCases) { measure in
-                        Text("\(measure.rawValue)")
+                    List(mockDatas) { measure in
+                        Text("\(measure.name)")
                             .onTapGesture {
                                 selectedMeasure = measure
                                 showList.toggle()
@@ -46,24 +49,14 @@ struct CustomPickerMeasureView: View {
 //
                     }
                     .listStyle(.plain)
-                    .frame(maxHeight: 200)
-                    .offset(x: 0, y: 50)
+                    .frame(height: 200)
+                    .offset(x: 0, y: 200)
                 }
             }
-           
-//            if showList {
-//                List(CustomMeasureOfMagnitude.allCases) { measure in
-//                    Text("\(measure.rawValue)")
-//                        .onTapGesture {
-//                            selectedMeasure = measure
-//                            showList.toggle()
-//                        }
-//                }
-//                .listStyle(.plain)
-//                .frame(maxHeight: 200)
-//            }
+
         }
         .frame(width: 130)
+        
     }
 }
 

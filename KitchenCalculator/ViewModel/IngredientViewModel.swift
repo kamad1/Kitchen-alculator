@@ -17,6 +17,7 @@ class IngredientViewModel: ObservableObject {
     func getData() {
         self.ingredient = Ingredient.mockData
     }
+    
     func addNewIngredient(ingredient: Ingredient) {
         Ingredient.mockData.append(ingredient)
     }

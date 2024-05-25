@@ -25,6 +25,7 @@ struct IngredientView: View {
                         }
                         .tint(.green)
                     }
+                    
             }
         }.overlay(alignment: .bottomTrailing, content: {
             Button {

@@ -5,8 +5,8 @@ struct StartView: View {
     @StateObject  var viewModel = StartViewModel()
     @State private var sumNum: String = ""
     @State private var animateGradient = false
-    @State private var selectedMeasure: CustomMeasureOfMagnitude = .kg
-    @State private var selectedPacking: CustomMeasureOfMagnitude = .gramm
+    @State private var selectedMeasure: MeasureOfMagnitude = .init(name: "Не выбран")
+    @State private var selectedPacking: MeasureOfMagnitude = .init(name: "Не выбран")
     var body: some View {
         VStack {
             HStack() {
@@ -52,11 +52,16 @@ struct StartView: View {
 //                    .clipShape(.rect(cornerRadii: .init(topTrailing: 12)))
 //                    .border(.mint)
 //                    .clipShape(.rect(cornerRadii: .init(topTrailing: 12)))
-
-                        CustomPickerMeasureView(selectedMeasure: $selectedMeasure)
-                       
-                    CustomPickerMeasureView(selectedMeasure: $selectedPacking)
-                       
+                    CustomPickerMeasureView(selectedMeasure: $selectedMeasure, mockDatas: viewModel.measures)
+                        .zIndex(10)
+                    CustomPickerMeasureView(selectedMeasure: $selectedPacking, mockDatas: viewModel.packings)
+                    
+                    
+//                        CustomPickerMeasureView(selectedMeasure: $selectedMeasure)
+//                        .zIndex(10)
+//                       
+//                    CustomPickerMeasureView(selectedMeasure: $selectedPacking)
+//                        .zIndex(9)
                         
 //                    CustomPickerPackingView(selectedPacking: $selectedPacking)
                     
@@ -94,7 +99,7 @@ struct StartView: View {
                        .padding(2)
                        .border(.mint)
                        .shadow( radius: 4)
-                
+                       
                 Button(action: {
                     //
                 }, label: {
@@ -110,7 +115,7 @@ struct StartView: View {
                 }).frame(maxWidth: .infinity, maxHeight: 40)
                     .border(.mint)
                     .background(.white)
-                
+
                 Button(action: {
                     //
                 }, label: {
