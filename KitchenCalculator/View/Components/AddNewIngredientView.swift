@@ -66,7 +66,7 @@ struct AddNewIngredientView: View {
                     .keyboardType(.numberPad)
                 
                 Toggle(isOn: $viewModel.isWeight, label: {
-                    Text("Label")
+                    Text("Весл или Литры")
                 })
                 
                 Button("Сохранить") {

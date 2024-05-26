@@ -55,7 +55,8 @@ struct StartView: View {
                     CustomPickerMeasureView(selectedMeasure: $selectedMeasure, mockDatas: viewModel.measures)
                         .zIndex(10)
                     CustomPickerMeasureView(selectedMeasure: $selectedPacking, mockDatas: viewModel.packings)
-                    
+                        
+
                     
 //                        CustomPickerMeasureView(selectedMeasure: $selectedMeasure)
 //                        .zIndex(10)
@@ -81,6 +82,7 @@ struct StartView: View {
 //                    .border(.mint)
                 }
             }
+            .zIndex(9)
             
             VStack {
                 
@@ -90,6 +92,8 @@ struct StartView: View {
                         Text(ingredient.name).tag(ingredient)
                     }
                 }
+                       
+
                        .accentColor(.white)
                        .frame(maxWidth: .infinity, maxHeight: 40)
                        .background {
@@ -152,6 +156,8 @@ struct StartView: View {
                     .padding(.bottom, 25)
                 
             }
+         
+
             Spacer()
             
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
