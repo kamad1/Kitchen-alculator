@@ -2,12 +2,12 @@
 import Foundation
 
 class StartViewModel: ObservableObject {
-    @Published var inMeasure = MeasureOfMagnitude(name: "Не выбрано")
-    @Published var outMeasure = MeasureOfMagnitude(name: "Не выбрано")
+    @Published var inMeasure = CustomMeasureOfMagnitude(name: "Не выбрано")
+    @Published var outMeasure = CustomMeasureOfMagnitude(name: "Не выбрано")
     @Published var ingredient = Ingredient(name: "не выбран", density: 0)
 //    
-    @Published var measures: [MeasureOfMagnitude] = []
-    @Published var packings: [MeasureOfMagnitude] = []
+    @Published var measures: [CustomMeasureOfMagnitude] = []
+    @Published var packings: [CustomMeasureOfMagnitude] = []
     @Published var ingredients: [Ingredient] = []
 //    
     init() {
@@ -15,8 +15,8 @@ class StartViewModel: ObservableObject {
     }
     
     func getData() {
-        self.measures = MeasureOfMagnitude.measures
-        self.packings = MeasureOfMagnitude.measures
+        self.measures = CustomMeasureOfMagnitude.mockData
+        self.packings = CustomMeasureOfMagnitude.mockData
         self.ingredients = Ingredient.mockData
     }
 }

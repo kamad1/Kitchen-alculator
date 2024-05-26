@@ -10,24 +10,63 @@ struct IngredientView: View {
     var body: some View {
         
         VStack {
-            List(viewModel.ingredient) { ingr in
-                Text("\(ingr.name): его плотность \(ingr.density)")
-                    .swipeActions() {
-                        Button("Удалить") {
-                            viewModel.deleteIngredient(ingredient: ingr)
-                        }
-                        .tint(.red)
-                    }
-                    .swipeActions(edge: .leading) {
-                        Button("Редактировать") {
-                            //TODO: Сделать редактирование
 
+            
+            Section(header: Text("Ингредиенты")
+                .foregroundStyle(.black)
+                .font(.title3).bold()
+            ) {
+                List(viewModel.ingredient) { ingr in
+                    Text("\(ingr.name): его плотность \(ingr.density)")
+                        .swipeActions() {
+                            Button("Удалить") {
+                                viewModel.deleteIngredient(ingredient: ingr)
+                            }
+                            .tint(.red)
                         }
-                        .tint(.green)
-                    }
+                        .swipeActions(edge: .leading) {
+                            Button("Редактировать") {
+                                //TODO: Сделать редактирование
+                                
+                            }
+                            .tint(.green)
+                        }
                     
+                }
+                
             }
-        }.overlay(alignment: .bottomTrailing, content: {
+
+            Section(header: Text("Меры")
+                .foregroundStyle(.black)
+                .font(.title3).bold()
+            ) {
+                List(viewModel.measure) { meas in
+                    Text("\(meas.name): его плотность \(Int(meas.baseValue))")
+                        .swipeActions() {
+                            Button("Удалить") {
+                                viewModel.deleteMeasure(measure: meas)
+                            }
+                            .tint(.red)
+                        }
+                        .swipeActions(edge: .leading) {
+                            Button("Редактировать") {
+                                //TODO: Сделать редактирование
+                                
+                            }
+                            .tint(.green)
+                        }
+                    
+                }
+                
+                
+            }
+            
+            
+        
+            
+            
+        }
+        .overlay(alignment: .bottomTrailing, content: {
             Button {
                 showAddIngredientView = true
             } label: {
@@ -39,12 +78,6 @@ struct IngredientView: View {
             }
             .offset(x: -10, y: -57)
         })
-        .background {
-            Image(.krup2)
-                .resizable()
-                .scaledToFill()
-                .ignoresSafeArea()
-        }
         .overlay {
             AddNewIngredientView {
                 showAddIngredientView = false

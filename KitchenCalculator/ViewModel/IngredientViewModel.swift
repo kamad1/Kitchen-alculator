@@ -9,6 +9,7 @@ import Foundation
 
 class IngredientViewModel: ObservableObject {
     @Published var ingredient: [Ingredient] = []
+    @Published var measure: [CustomMeasureOfMagnitude] = []
     
     init() {
         getData()
@@ -16,6 +17,7 @@ class IngredientViewModel: ObservableObject {
     
     func getData() {
         self.ingredient = Ingredient.mockData
+        self.measure = CustomMeasureOfMagnitude.mockData
     }
     
     func addNewIngredient(ingredient: Ingredient) {
@@ -29,4 +31,17 @@ class IngredientViewModel: ObservableObject {
         }
         self.ingredient.remove(at: index!)
     }
+    
+    func addNewMeasure(measure: CustomMeasureOfMagnitude) {
+        CustomMeasureOfMagnitude.mockData.append(measure)
+    }
+    
+    func deleteMeasure(measure: CustomMeasureOfMagnitude) {
+        let index = self.measure.firstIndex {
+            measur in
+            measur.id == measure.id
+        }
+        self.measure.remove(at: index!)
+    }
+    
 }

@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct CustomPickerMeasureView: View {
-//    @Binding var selectedMeasure: CustomMeasureOfMagnitude
-    @Binding var selectedMeasure: MeasureOfMagnitude
-    var mockDatas: [MeasureOfMagnitude]
+    @Binding var selectedMeasure: CustomMeasureOfMagnitude
+    var mockDatas: [CustomMeasureOfMagnitude]
     @State private var showList = false
     
     var body: some View {

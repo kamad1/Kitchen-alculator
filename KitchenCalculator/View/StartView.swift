@@ -5,8 +5,8 @@ struct StartView: View {
     @StateObject  var viewModel = StartViewModel()
     @State private var sumNum: String = ""
     @State private var animateGradient = false
-    @State private var selectedMeasure: MeasureOfMagnitude = .init(name: "Не выбран")
-    @State private var selectedPacking: MeasureOfMagnitude = .init(name: "Не выбран")
+    @State private var selectedMeasure: CustomMeasureOfMagnitude = .init(name: "Не выбран")
+    @State private var selectedPacking: CustomMeasureOfMagnitude = .init(name: "Не выбран")
     var body: some View {
         VStack {
             HStack() {
