@@ -25,6 +25,7 @@
 		814F14482BFE3AD30012B6C3 /* AddNewIngredientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F14472BFE3AD30012B6C3 /* AddNewIngredientViewModel.swift */; };
 		814F144A2BFE3E6F0012B6C3 /* CostumTextFieldModifire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F14492BFE3E6F0012B6C3 /* CostumTextFieldModifire.swift */; };
 		81F047102C05C14400117B00 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 81F0470F2C05C14400117B00 /* RealmSwift */; };
+		81F047152C05C7FE00117B00 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F047142C05C7FE00117B00 /* RealmService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		814F14442BFE3AB80012B6C3 /* AddNewIngredientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewIngredientView.swift; sourceTree = "<group>"; };
 		814F14472BFE3AD30012B6C3 /* AddNewIngredientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewIngredientViewModel.swift; sourceTree = "<group>"; };
 		814F14492BFE3E6F0012B6C3 /* CostumTextFieldModifire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostumTextFieldModifire.swift; sourceTree = "<group>"; };
+		81F047142C05C7FE00117B00 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 				814F13E42BF641D70012B6C3 /* View */,
 				814F14242BFA1A420012B6C3 /* ViewModel */,
 				814F144B2BFE3F670012B6C3 /* Extension+Modifire */,
+				81F047162C05C80300117B00 /* Service */,
 				814F13D72BF3C9710012B6C3 /* Assets.xcassets */,
 				814F13D92BF3C9710012B6C3 /* Preview Content */,
 			);
@@ -188,6 +191,14 @@
 			path = "dont use";
 			sourceTree = "<group>";
 		};
+		81F047162C05C80300117B00 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				81F047142C05C7FE00117B00 /* RealmService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -279,6 +290,7 @@
 				814F14302BFDF14A0012B6C3 /* Tab.swift in Sources */,
 				814F142C2BFDECBD0012B6C3 /* IngredientView.swift in Sources */,
 				814F13D42BF3C9700012B6C3 /* KitchenCalculatorApp.swift in Sources */,
+				81F047152C05C7FE00117B00 /* RealmService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

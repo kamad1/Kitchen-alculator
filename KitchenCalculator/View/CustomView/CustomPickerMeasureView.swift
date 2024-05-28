@@ -1,3 +1,4 @@
+
 //
 //  CustomPickerView.swift
 //  KitchenCalculator
@@ -9,7 +10,7 @@ import SwiftUI
 
 struct CustomPickerMeasureView: View {
     @Binding var selectedMeasure: CustomMeasureOfMagnitude
-    var mockDatas: [CustomMeasureOfMagnitude]
+    var mockDatas =  RealmService.shared.getAllMeasure()
     @State private var showList = false
     
     var body: some View {
@@ -39,7 +40,7 @@ struct CustomPickerMeasureView: View {
             
             .overlay(alignment: .bottom) {
                 if showList {
-                    List(mockDatas) { measure in
+                    List(mockDatas, id: \._id) { measure in
                         Text("\(measure.name)")
                             .onTapGesture {
                                 selectedMeasure = measure
@@ -62,3 +63,63 @@ struct CustomPickerMeasureView: View {
 //#Preview {
 //    CustomPickerMeasureView()
 //}
+
+
+
+//import SwiftUI
+//
+//struct CustomPickerMeasureView: View {
+//    @Binding var selectedMeasure: CustomMeasureOfMagnitude
+//    var mockDatas: [CustomMeasureOfMagnitude]
+//    @State private var showList = false
+//    
+//    var body: some View {
+//        
+//        VStack {
+//            HStack {
+//                Text("\(selectedMeasure.name)")
+//                Image(systemName: "triangle")
+//                    .rotationEffect(.degrees(180))
+//                    .onTapGesture {
+//                        showList.toggle()
+//                }
+//            }
+//            .frame(width: 130, height: 60)
+//            .background {
+//                Image(.ves2)
+//                    .resizable()
+//                    .scaledToFill()
+//            }
+//            .accentColor(.black).bold()
+//            .clipShape(.rect(cornerRadii: .init(topTrailing: 12)))
+//            .padding(2)
+//            .background(.white)
+//            .clipShape(.rect(cornerRadii: .init(topTrailing: 12)))
+//            .border(.mint)
+//            .clipShape(.rect(cornerRadii: .init(topTrailing: 12)))
+//            
+//            .overlay(alignment: .bottom) {
+//                if showList {
+//                    List(mockDatas) { measure in
+//                        Text("\(measure.name)")
+//                            .onTapGesture {
+//                                selectedMeasure = measure
+//                                showList.toggle()
+//                            }
+////
+//                    }
+//                    .listStyle(.plain)
+//                    .frame(height: 200)
+//                    .offset(x: 0, y: 200)
+//                }
+//            }
+//
+//        }
+//        .frame(width: 130)
+//        
+//    }
+//}
+//
+////#Preview {
+////    CustomPickerMeasureView()
+////}

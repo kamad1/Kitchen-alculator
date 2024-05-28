@@ -16,8 +16,8 @@ struct IngredientView: View {
                 .foregroundStyle(.black)
                 .font(.title3).bold()
             ) {
-                List(viewModel.ingredient) { ingr in
-                    Text("\(ingr.name): его плотность \(ingr.density)")
+                List(viewModel.ingredient, id: \._id) { ingr in
+                    Text("\(ingr.name): его плотность \(String(describing: ingr.density))")
                         .swipeActions() {
                             Button("Удалить") {
                                 viewModel.deleteIngredient(ingredient: ingr)
@@ -40,7 +40,7 @@ struct IngredientView: View {
                 .foregroundStyle(.black)
                 .font(.title3).bold()
             ) {
-                List(viewModel.measure) { meas in
+                List(viewModel.measure, id: \._id) { meas in
                     Text("\(meas.name): его плотность \(Int(meas.baseValue))")
                         .swipeActions() {
                             Button("Удалить") {
@@ -81,7 +81,8 @@ struct IngredientView: View {
         .overlay {
             AddNewIngredientView {
                 showAddIngredientView = false
-                viewModel.ingredient = Ingredient.mockData
+                viewModel.ingredient = RealmService.shared.getAllIngredient()
+                viewModel.measure = RealmService.shared.getAllMeasure()
             }
             .offset(y: showAddIngredientView ? 0 : 700)
         }
@@ -92,3 +93,101 @@ struct IngredientView: View {
 #Preview {
     IngredientView()
 }
+
+
+
+//
+//
+//import SwiftUI
+//
+//struct IngredientView: View {
+//    @StateObject var viewModel = IngredientViewModel()
+//    @State private var showAddIngredientView = false
+//    @State private var total = 0
+//    
+//    var body: some View {
+//        
+//        VStack {
+//
+//            
+//            Section(header: Text("Ингредиенты")
+//                .foregroundStyle(.black)
+//                .font(.title3).bold()
+//            ) {
+//                List(viewModel.ingredient) { ingr in
+//                    Text("\(ingr.name): его плотность \(ingr.density)")
+//                        .swipeActions() {
+//                            Button("Удалить") {
+//                                viewModel.deleteIngredient(ingredient: ingr)
+//                            }
+//                            .tint(.red)
+//                        }
+//                        .swipeActions(edge: .leading) {
+//                            Button("Редактировать") {
+//                                //TODO: Сделать редактирование
+//                                
+//                            }
+//                            .tint(.green)
+//                        }
+//                    
+//                }
+//                
+//            }
+//
+//            Section(header: Text("Меры")
+//                .foregroundStyle(.black)
+//                .font(.title3).bold()
+//            ) {
+//                List(viewModel.measure) { meas in
+//                    Text("\(meas.name): его плотность \(Int(meas.baseValue))")
+//                        .swipeActions() {
+//                            Button("Удалить") {
+//                                viewModel.deleteMeasure(measure: meas)
+//                            }
+//                            .tint(.red)
+//                        }
+//                        .swipeActions(edge: .leading) {
+//                            Button("Редактировать") {
+//                                //TODO: Сделать редактирование
+//                                
+//                            }
+//                            .tint(.green)
+//                        }
+//                    
+//                }
+//                
+//                
+//            }
+//            
+//            
+//        
+//            
+//            
+//        }
+//        .overlay(alignment: .bottomTrailing, content: {
+//            Button {
+//                showAddIngredientView = true
+//            } label: {
+//                Image(.button).renderingMode(.original)
+//                    .resizable()
+//                    .frame(width: 70, height: 70)
+//                    .clipShape(.circle)
+//                    .foregroundColor(.blue)
+//            }
+//            .offset(x: -10, y: -57)
+//        })
+//        .overlay {
+//            AddNewIngredientView {
+//                showAddIngredientView = false
+//                viewModel.ingredient = Ingredient.mockData
+//                viewModel.measure = CustomMeasureOfMagnitude.mockData
+//            }
+//            .offset(y: showAddIngredientView ? 0 : 700)
+//        }
+//        .animation(.easeInOut, value: showAddIngredientView)
+//    }
+//}
+//
+//#Preview {
+//    IngredientView()
+//}

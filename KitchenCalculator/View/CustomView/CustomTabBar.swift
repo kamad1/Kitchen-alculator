@@ -13,7 +13,7 @@ struct CustomTabBar: View {
     var body: some View {
         TabView(selection: $activeTab) {
             
-            StartView()
+            StartView(selectedMeasure: CustomMeasureOfMagnitude(), selectedPacking: CustomMeasureOfMagnitude())
                 .tag(Tab.menu)
                 .toolbar(.hidden, for: .tabBar)
                 
@@ -28,8 +28,13 @@ struct CustomTabBar: View {
         }
         .ignoresSafeArea()
         .animation(.interpolatingSpring, value: activeTab)
+        .onAppear {print(RealmService.shared.getUrl())}
+        
+        //TODO: ссылка на реалм
+        /*file:///Users/jedi/Library/Developer/Xcode/UserData/Previews/Simulator%20Devices/B9103A0C-4AB7-42AF-B51F-282397499706/data/Containers/Data/Application/C1EEE630-5240-4EB9-A9DA-0DE67AD4CE1B/Documents/default.realm
+         */
     }
-    
+        
     
     @ViewBuilder func CustomTabView() -> some View {
         HStack(spacing: 80) {
