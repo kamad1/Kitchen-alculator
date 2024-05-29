@@ -17,7 +17,7 @@ struct IngredientView: View {
                 .font(.title3).bold()
             ) {
                 List(viewModel.ingredient, id: \._id) { ingr in
-                    Text("\(ingr.name): его плотность \(String(describing: ingr.density))")
+                    Text("\(ingr.name): его(ее) плотность \(String(describing: ingr.density))")
                         .swipeActions() {
                             Button("Удалить") {
                                 viewModel.deleteIngredient(ingredient: ingr)
@@ -41,7 +41,7 @@ struct IngredientView: View {
                 .font(.title3).bold()
             ) {
                 List(viewModel.measure, id: \._id) { meas in
-                    Text("\(meas.name): его <V> \(Int(meas.baseValue))")
+                    Text("\(meas.name): объем(вес) \(Int(meas.baseValue))")
                         .swipeActions() {
                             Button("Удалить") {
                                 viewModel.deleteMeasure(measure: meas)
