@@ -13,8 +13,11 @@ class StartViewModel: ObservableObject {
     
     func getData() {
         let inMeasure = RealmService.shared.getAllMeasure()
+        self.inMeasure = inMeasure
         let outMeasure = RealmService.shared.getAllMeasure()
+        self.outMeasure = outMeasure
         let ingredient = RealmService.shared.getAllIngredient()
+        self.ingredient = ingredient
     }
 }
 

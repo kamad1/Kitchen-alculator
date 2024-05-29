@@ -3,10 +3,11 @@ import SwiftUI
 
 struct StartView: View {
     @StateObject  var viewModel = StartViewModel()
-    @State private var sumNum: String = ""
-    @State private var animateGradient = false
-    @State  var selectedMeasure: CustomMeasureOfMagnitude
-    @State  var selectedPacking: CustomMeasureOfMagnitude
+    @State  var sumNum: String = ""
+    @State  var animateGradient = false
+    @State  var selectedMeasure: CustomMeasureOfMagnitude = .init(name: "Не выбрано", isWeight: true, baseValue: 0.0)
+    @State  var selectedPacking: CustomMeasureOfMagnitude = .init(name: "Не выбрано", isWeight: true, baseValue: 0.0)
+
     var body: some View {
         VStack {
             HStack() {

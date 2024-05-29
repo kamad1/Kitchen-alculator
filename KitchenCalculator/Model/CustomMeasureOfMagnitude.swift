@@ -8,6 +8,13 @@ class CustomMeasureOfMagnitude: Object {
     @Persisted var isWeight: Bool = false
     @Persisted var baseValue: Double = 0.0
     
+    convenience init(name: String, isWeight: Bool, baseValue: Double) {
+        self.init()
+        self.name = name
+        self.isWeight = isWeight
+        self.baseValue = baseValue
+    }
+    
 //    static var mockData: [CustomMeasureOfMagnitude] = [
 //        .init(name: "Килограмм", isWeight: true, baseValue: 1),
 //        .init(name: "Грамм", isWeight: true, baseValue: 1000),

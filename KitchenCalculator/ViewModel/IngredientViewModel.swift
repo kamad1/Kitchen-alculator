@@ -18,7 +18,9 @@ class IngredientViewModel: ObservableObject {
     
     func getData() {
         let ingredient = RealmService.shared.getAllIngredient()
+        self.ingredient = ingredient
         let measure = RealmService.shared.getAllMeasure()
+        self.measure = measure
     }
     
     func addNewIngredient(ingredient: Ingredient) {

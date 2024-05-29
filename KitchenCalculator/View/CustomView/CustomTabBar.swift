@@ -13,7 +13,7 @@ struct CustomTabBar: View {
     var body: some View {
         TabView(selection: $activeTab) {
             
-            StartView(selectedMeasure: CustomMeasureOfMagnitude(), selectedPacking: CustomMeasureOfMagnitude())
+            StartView()
                 .tag(Tab.menu)
                 .toolbar(.hidden, for: .tabBar)
                 

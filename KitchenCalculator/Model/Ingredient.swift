@@ -6,6 +6,12 @@ class Ingredient: Object {
     @Persisted(primaryKey: true) var _id: ObjectId
     @Persisted var name: String = ""
     @Persisted var density: Int?
+    
+    convenience init(name: String, density: Int) {
+        self.init()
+        self.name = name
+        self.density = density
+    }
 
 //    static var mockData: [Ingredient] = [
 //        .init(name: "Сахар", density: 1085),

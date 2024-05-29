@@ -9,6 +9,13 @@ import SwiftUI
 
 struct AddNewIngredientView: View {
     @StateObject var viewModel = AddNewIngredientViewModel()
+    @State var name: String = ""
+    @State var density: Int?
+    
+    @State var nameMeasur: String = ""
+    @State var baseValue: Double?
+    @State var isWeight : Bool = true
+    
     @State var isTrue: Bool = true
 
     var dismissAction: () -> ()
@@ -18,17 +25,20 @@ struct AddNewIngredientView: View {
             VStack {
                 Text("Новый ингредиент")
                     .font(.title2).bold()
-                TextField("Название ингредиента", text: $viewModel.name)
+                TextField("Название ингредиента", text: $name)
                     .modifier(CostumTextFieldModifire())
-                TextField("Плотность продукта", value: $viewModel.density, format: .number)
+
+                TextField("Плотность продукта", value: $density, format: .number)
                     .modifier(CostumTextFieldModifire())
                     .keyboardType(.numberPad)
                 
                 Button("Сохранить") {
 // TODO: сделать добавление нового игред
-//                    viewModel.addIngredient(ingredient: ingredient)
+                    viewModel.addIngredient(name: name, density: density ?? 0)
                     dismissAction()
                     
+                    name = ""
+                    density = nil
                     
                 }
                 .frame(maxWidth: .infinity)
@@ -60,20 +70,23 @@ struct AddNewIngredientView: View {
             VStack {
                 Text("Новая Мера")
                     .font(.title2).bold()
-                TextField("Название меры", text: $viewModel.nameMeasur)
+                TextField("Название меры", text: $nameMeasur)
                     .modifier(CostumTextFieldModifire())
-                TextField("V-меры", value: $viewModel.baseValue, format: .number)
+                TextField("V-меры", value: $baseValue, format: .number)
                     .modifier(CostumTextFieldModifire())
                     .keyboardType(.numberPad)
                 
-                Toggle(isOn: $viewModel.isWeight, label: {
-                    Text("Весл или Литры")
+                Toggle(isOn: $isWeight, label: {
+                        Text("Вес или Литры")
                 })
                 
                 Button("Сохранить") {
                     // TODO: сделать добавление нового игред
-//                    viewModel.addMeasure(viewModel.measur)
+                    viewModel.addMeasure(name: nameMeasur, baseValue: baseValue ?? 0.0, isWeight: isWeight)
+
                     dismissAction()
+                    name = ""
+                    baseValue = nil
                     
                     
                 }
