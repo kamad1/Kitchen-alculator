@@ -21,7 +21,7 @@ struct AddNewIngredientView: View {
     var dismissAction: () -> ()
     
     var body: some View {
-        VStack(spacing: 0) {
+        VStack(spacing: 10) {
             VStack {
                 Text("Новый ингредиент")
                     .font(.title2).bold()
@@ -33,7 +33,6 @@ struct AddNewIngredientView: View {
                     .keyboardType(.numberPad)
                 
                 Button("Сохранить") {
-// TODO: сделать добавление нового игред
                     viewModel.addIngredient(name: name, density: density ?? 0)
                     dismissAction()
                     
@@ -65,7 +64,7 @@ struct AddNewIngredientView: View {
                         .offset(x: 10, y: -10)
                 })
             }
-            .padding(30)
+            .padding(.horizontal, 30)
             
             VStack {
                 Text("Новая Мера")
@@ -81,7 +80,7 @@ struct AddNewIngredientView: View {
                 })
                 
                 Button("Сохранить") {
-                    // TODO: сделать добавление нового игред
+
                     viewModel.addMeasure(name: nameMeasur, baseValue: baseValue ?? 0.0, isWeight: isWeight)
 
                     dismissAction()
@@ -114,7 +113,27 @@ struct AddNewIngredientView: View {
                         .offset(x: 10, y: -10)
                 })
             }
-            .padding(30)
+            .padding(.horizontal ,30)
+            Button("Сохранить Ингредиент и Меру") {
+                viewModel.addMeasure(name: nameMeasur, baseValue: baseValue ?? 0.0, isWeight: isWeight)
+                viewModel.addIngredient(name: name, density: density ?? 0)
+                
+                dismissAction()
+                name = ""
+                baseValue = nil
+                name = ""
+                density = nil
+                
+            }
+            .frame(maxWidth: .infinity)
+            .frame(height: 55)
+            .background(.purple)
+            .clipShape(.rect(cornerRadius: 8))
+            .foregroundColor(.white)
+            .font(.title3)
+            .padding(.horizontal, 30)
+            
+            Spacer()
         }
     }
 }

@@ -84,7 +84,7 @@ struct IngredientView: View {
                 viewModel.ingredient = RealmService.shared.getAllIngredient()
                 viewModel.measure = RealmService.shared.getAllMeasure()
             }
-            .offset(y: showAddIngredientView ? 0 : 700)
+            .offset(y: showAddIngredientView ? 0 : 1000)
         }
         .animation(.easeInOut, value: showAddIngredientView)
     }

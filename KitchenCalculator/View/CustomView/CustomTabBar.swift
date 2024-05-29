@@ -65,3 +65,5 @@ struct CustomTabBar: View {
 #Preview {
     CustomTabBar()
 }
+
+//            StartView(selectedMeasure: CustomMeasureOfMagnitude(), selectedPacking: CustomMeasureOfMagnitude())
