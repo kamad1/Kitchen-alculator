@@ -41,7 +41,7 @@ struct IngredientView: View {
                 .font(.title3).bold()
             ) {
                 List(viewModel.measure, id: \._id) { meas in
-                    Text("\(meas.name): его плотность \(Int(meas.baseValue))")
+                    Text("\(meas.name): его <V> \(Int(meas.baseValue))")
                         .swipeActions() {
                             Button("Удалить") {
                                 viewModel.deleteMeasure(measure: meas)
