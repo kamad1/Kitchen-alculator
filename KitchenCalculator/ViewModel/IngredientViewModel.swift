@@ -31,9 +31,11 @@ class IngredientViewModel: ObservableObject {
     }
     
     func deleteIngredient(ingredient: Ingredient) {
-        RealmService.shared.deleteIngredient(ingredient)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.03) {
-            self.getData()
+        DispatchQueue.main.async {
+            RealmService.shared.deleteIngredient(ingredient)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.03) {
+                self.getData()
+            }
         }
     }
         func addNewMeasure(measure: CustomMeasureOfMagnitude) {
@@ -43,7 +45,12 @@ class IngredientViewModel: ObservableObject {
         }
         
         func deleteMeasure(measure: CustomMeasureOfMagnitude) {
-            RealmService.shared.deleteMeasure(measure)
+            DispatchQueue.main.async {
+                RealmService.shared.deleteMeasure(measure)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.03) {
+                    self.getData()
+                }
+            }
         }
         
     }
