@@ -11,6 +11,7 @@ import RealmSwift
 class RealmService {
     static let shared = RealmService(); private init() {}
     private let realm = try! Realm()
+  
     
     func getUrl() -> String {
         guard let url = realm.configuration.fileURL else { return "REALM not found" }

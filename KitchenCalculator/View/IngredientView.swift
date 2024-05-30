@@ -5,13 +5,14 @@ import SwiftUI
 struct IngredientView: View {
     @StateObject var viewModel = IngredientViewModel()
     @State private var showAddIngredientView = false
+    @State private var showChangeSheet = false
+    @State private var currentPosition: Ingredient = .init(name: "", density: 0)
     @State private var total = 0
+    
     
     var body: some View {
         
         VStack {
-
-            
             Section(header: Text("Ингредиенты")
                 .foregroundStyle(.black)
                 .font(.title3).bold()
@@ -20,22 +21,27 @@ struct IngredientView: View {
                     Text("\(ingr.name): его(ее) плотность \(String(describing: ingr.density))")
                         .swipeActions() {
                             Button("Удалить") {
-                                viewModel.deleteIngredient(ingredient: ingr)
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.03) {
+                                    viewModel.deleteIngredient(ingredient: ingr)
+                                }
+                                
                             }
                             .tint(.red)
                         }
                         .swipeActions(edge: .leading) {
                             Button("Редактировать") {
                                 //TODO: Сделать редактирование
-                                
+//                                let index = viewModel.ingredient.getAllIngredient().firstIndex  { pos in
+//                                    pos.id == position.id
+//                                }!
+//                                currentPosition = viewModel.ingredient[index]
+//                                showChangeSheet = true
                             }
                             .tint(.green)
                         }
-                    
                 }
-                
             }
-
+            
             Section(header: Text("Меры")
                 .foregroundStyle(.black)
                 .font(.title3).bold()
@@ -48,23 +54,8 @@ struct IngredientView: View {
                             }
                             .tint(.red)
                         }
-                        .swipeActions(edge: .leading) {
-                            Button("Редактировать") {
-                                //TODO: Сделать редактирование
-                                
-                            }
-                            .tint(.green)
-                        }
-                    
                 }
-                
-                
             }
-            
-            
-        
-            
-            
         }
         .overlay(alignment: .bottomTrailing, content: {
             Button {
@@ -87,6 +78,21 @@ struct IngredientView: View {
             .offset(y: showAddIngredientView ? 0 : 1000)
         }
         .animation(.easeInOut, value: showAddIngredientView)
+        //TODO: вызов листа для изменения доделать
+        //        .overlay {
+        //            ChangePositionSheet(dismissAction: {
+        //
+        //            }, action: {
+        //
+        //
+        //                showChangeSheet = false
+        //                let index = viewModel.ingredient.firstIndex  { pos in
+        //                    pos.id == currentPosition.id
+        //                }!
+        //                viewModel.ingredient[index].count = currentPosition.count
+        //            }, newCount: $currentPosition.count)
+        //            .offset(y: showChangeSheet ? 0 : 1000 )
+        //        }
     }
 }
 
@@ -104,12 +110,12 @@ struct IngredientView: View {
 //    @StateObject var viewModel = IngredientViewModel()
 //    @State private var showAddIngredientView = false
 //    @State private var total = 0
-//    
+//
 //    var body: some View {
-//        
+//
 //        VStack {
 //
-//            
+//
 //            Section(header: Text("Ингредиенты")
 //                .foregroundStyle(.black)
 //                .font(.title3).bold()
@@ -125,13 +131,13 @@ struct IngredientView: View {
 //                        .swipeActions(edge: .leading) {
 //                            Button("Редактировать") {
 //                                //TODO: Сделать редактирование
-//                                
+//
 //                            }
 //                            .tint(.green)
 //                        }
-//                    
+//
 //                }
-//                
+//
 //            }
 //
 //            Section(header: Text("Меры")
@@ -149,20 +155,20 @@ struct IngredientView: View {
 //                        .swipeActions(edge: .leading) {
 //                            Button("Редактировать") {
 //                                //TODO: Сделать редактирование
-//                                
+//
 //                            }
 //                            .tint(.green)
 //                        }
-//                    
+//
 //                }
-//                
-//                
+//
+//
 //            }
-//            
-//            
-//        
-//            
-//            
+//
+//
+//
+//
+//
 //        }
 //        .overlay(alignment: .bottomTrailing, content: {
 //            Button {

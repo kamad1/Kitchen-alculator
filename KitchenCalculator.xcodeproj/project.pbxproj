@@ -26,6 +26,7 @@
 		814F144A2BFE3E6F0012B6C3 /* CostumTextFieldModifire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F14492BFE3E6F0012B6C3 /* CostumTextFieldModifire.swift */; };
 		81F047102C05C14400117B00 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 81F0470F2C05C14400117B00 /* RealmSwift */; };
 		81F047152C05C7FE00117B00 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F047142C05C7FE00117B00 /* RealmService.swift */; };
+		81F0471B2C08854A00117B00 /* ChangePositionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F0471A2C08854A00117B00 /* ChangePositionSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		814F14472BFE3AD30012B6C3 /* AddNewIngredientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewIngredientViewModel.swift; sourceTree = "<group>"; };
 		814F14492BFE3E6F0012B6C3 /* CostumTextFieldModifire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostumTextFieldModifire.swift; sourceTree = "<group>"; };
 		81F047142C05C7FE00117B00 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
+		81F0471A2C08854A00117B00 /* ChangePositionSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePositionSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 			children = (
 				814F14332BFDF1850012B6C3 /* CustomTabBar.swift */,
 				814F14352BFE04920012B6C3 /* CustomPickerMeasureView.swift */,
+				81F0471A2C08854A00117B00 /* ChangePositionSheet.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				814F14452BFE3AB80012B6C3 /* AddNewIngredientView.swift in Sources */,
 				814F142E2BFDEEF90012B6C3 /* Packing.swift in Sources */,
 				814F14342BFDF1850012B6C3 /* CustomTabBar.swift in Sources */,
+				81F0471B2C08854A00117B00 /* ChangePositionSheet.swift in Sources */,
 				814F14302BFDF14A0012B6C3 /* Tab.swift in Sources */,
 				814F142C2BFDECBD0012B6C3 /* IngredientView.swift in Sources */,
 				814F13D42BF3C9700012B6C3 /* KitchenCalculatorApp.swift in Sources */,
