@@ -18,12 +18,11 @@ struct IngredientView: View {
                 .font(.title3).bold()
             ) {
                 List(viewModel.ingredient, id: \._id) { ingr in
-                    Text("\(ingr.name): его(ее) плотность \(String(describing: ingr.density))")
+                    Text("\(ingr.name): его(ее) плотность \(ingr.density ?? 0)")
                         .swipeActions() {
                             Button("Удалить") {
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.03) {
-                                    viewModel.deleteIngredient(ingredient: ingr)
-                                }
+                                viewModel.deleteIngredient(ingredient: ingr)
+                               
                                 
                             }
                             .tint(.red)

@@ -32,6 +32,9 @@ class IngredientViewModel: ObservableObject {
     
     func deleteIngredient(ingredient: Ingredient) {
         RealmService.shared.deleteIngredient(ingredient)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.03) {
+            self.getData()
+        }
     }
         func addNewMeasure(measure: CustomMeasureOfMagnitude) {
             let measure = CustomMeasureOfMagnitude()
