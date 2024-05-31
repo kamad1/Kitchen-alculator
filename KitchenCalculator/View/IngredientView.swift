@@ -8,6 +8,8 @@ struct IngredientView: View {
     @State private var showChangeSheet = false
     @State private var currentPosition: Ingredient = .init(name: "", density: 0)
     @State private var total = 0
+    @State private var newName: String = ""
+    @State private var newDensity: Int?
     
     
     var body: some View {
@@ -30,11 +32,9 @@ struct IngredientView: View {
                         .swipeActions(edge: .leading) {
                             Button("Редактировать") {
                                 //TODO: Сделать редактирование
-//                                let index = viewModel.ingredient.getAllIngredient().firstIndex  { pos in
-//                                    pos.id == position.id
-//                                }!
-//                                currentPosition = viewModel.ingredient[index]
-//                                showChangeSheet = true
+
+                                
+                                
                             }
                             .tint(.green)
                         }
@@ -79,18 +79,9 @@ struct IngredientView: View {
         .animation(.easeInOut, value: showAddIngredientView)
         //TODO: вызов листа для изменения доделать
         //        .overlay {
-        //            ChangePositionSheet(dismissAction: {
-        //
-        //            }, action: {
-        //
-        //
-        //                showChangeSheet = false
-        //                let index = viewModel.ingredient.firstIndex  { pos in
-        //                    pos.id == currentPosition.id
-        //                }!
-        //                viewModel.ingredient[index].count = currentPosition.count
-        //            }, newCount: $currentPosition.count)
-        //            .offset(y: showChangeSheet ? 0 : 1000 )
+
+        
+        
         //        }
     }
 }
